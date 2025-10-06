@@ -33,6 +33,14 @@
   > *{ flex: 0 1 ~"calc((100% - (var(--cols) - 1) * @{space-4}) / var(--cols))"; }
 }
 
-/* Media queries */
-.up(@w) { @media (min-width:@w) { @arguments } }
-.down(@w){ @media (max-width:@w) { @arguments } }
+/* Media queries (LESS-compatible version) */
+.up(@w, @rules) {
+  @media (min-width: @w) {
+    @rules();
+  }
+}
+.down(@w, @rules) {
+  @media (max-width: @w) {
+    @rules();
+  }
+}
