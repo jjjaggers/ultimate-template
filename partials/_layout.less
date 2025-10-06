@@ -1,0 +1,56 @@
+/* NAV */
+header{ position:sticky; top:0; background:@surface; border-bottom:1px solid @line; z-index:@z-nav; }
+.nav{ display:flex; align-items:center; justify-content:space-between; gap:@space-3; padding-block:14px; }
+.logo{ font-weight:700; letter-spacing:.02em; }
+
+#nav-toggle{ position:absolute; opacity:0; pointer-events:none; }
+.hamburger{ --bar:2px; width:28px; height:20px; position:relative; display:inline-flex; flex-direction:column;
+  justify-content:space-between; cursor:pointer;
+  span{ height:2px; background:@ink; display:block; transition:transform .2s ease, opacity .2s ease; border-radius:2px; }
+}
+nav{
+  .links{ display:none; flex-direction:column; gap:8px; padding:@space-3 0;
+    a{ padding:8px 0; border-bottom:1px dashed transparent; &:hover{ border-bottom-color:@line; } }
+  }
+  .nav-cta{ margin-top:6px; }
+}
+#nav-toggle:checked ~ .links{ display:flex; }
+#nav-toggle:checked + label.hamburger {
+  span:nth-child(1){ transform:translateY(9px) rotate(45deg); }
+  span:nth-child(2){ opacity:0; }
+  span:nth-child(3){ transform:translateY(-9px) rotate(-45deg); }
+}
+.up(@bp-lg){
+  .hamburger{ display:none; }
+  nav .links{ display:flex !important; flex-direction:row; align-items:center; gap:@space-4; padding:0; }
+  nav .nav-cta{ margin-top:0; }
+}
+
+/* HERO */
+.hero{ background:@surface;
+  .kicker{ margin-bottom:@space-2; }
+  .video-box{ border:2px dashed @accent; border-radius:@radius;
+    .label{ position:absolute; right:10px; bottom:10px; font-weight:700; color:@muted; background:rgba(255,255,255,.8); padding:4px 8px; border-radius:6px; }
+  }
+}
+
+/* GLOBAL ROWS / PRESET COLS */
+.row{ display:flex; flex-wrap:wrap; gap:@space-4; }
+.card{ .card(); }
+
+/* Responsive presets using the gap-aware mixin */
+.cols-2 { .cols(1);
+  .up(@bp-md){ .cols(2); }
+}
+.cols-3 { .cols(1);
+  .up(@bp-md){ .cols(2); }
+  .up(@bp-lg){ .cols(3); }
+}
+.cols-4 { .cols(1);
+  .up(@bp-md){ .cols(2); }
+  .up(@bp-lg){ .cols(4); }
+}
+.cols-5 { .cols(1);
+  .up(@bp-md){ .cols(2); }
+  .up(@bp-lg){ .cols(5); }
+}

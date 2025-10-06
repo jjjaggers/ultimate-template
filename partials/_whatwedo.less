@@ -1,0 +1,8 @@
+.whatwedo{
+  .intro{ max-width:68ch; }
+}
+.grid-6{ display:flex; flex-wrap:wrap; gap:@space-4;
+  > *{ flex:1 1 calc(33.333% - @space-4); }
+  .down(@bp-lg){ > *{ flex:1 1 calc(50% - @space-4); } }
+  .down(@bp-md){ > *{ flex:1 1 100%; } }
+}

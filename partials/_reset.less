@@ -1,0 +1,11 @@
+*,*::before,*::after{ box-sizing:border-box; }
+html,body{ height:100%; }
+body{
+  margin:0; font-family:'Roboto', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color:@ink; background:@bg; line-height:1.5;
+}
+img,video{ max-width:100%; height:auto; display:block; }
+a{ color:inherit; text-decoration:none; }
+p{ margin:0 0 @space-3; color:@muted; }
+h1,h2,h3,h4{ margin:0 0 @space-3; font-weight:700; }
+html, body { overflow-x: clip; } // safety against sub-pixel overflow
